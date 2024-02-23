@@ -1,0 +1,13 @@
+provider "aws" {
+  region = "us-east-2"
+}
+resource "aws_instance" "dove" {
+  ami                    = "ami-02ca28e7c7b8f8be1"
+  instance_type          = "t2.micro"
+  availability_zone      = "us-east-2a"
+  key_name               = "dove-key"
+  vpc_security_group_ids = ["sg-0684742b534c2aa40"]
+  tags = {
+    Name = "dove-instance"
+  }
+}
